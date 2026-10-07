@@ -1,0 +1,364 @@
+/* ==========================================================================
+   Wayam ontology explorer — design tokens
+   Family hues follow the Wayam reference graphic. Every hue is paired with a
+   glyph in the UI so colour is never the only cue.
+   ========================================================================== */
+
+:root {
+  --font-display: var(--font-geist-sans), system-ui, sans-serif;
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* Surfaces */
+  --bg: #f2f2f2;
+  --canvas: #fafafa;
+  --canvas-dot: #d4d4d4;
+  --surface: #ffffff;
+  --surface-2: #fafafa;
+  --surface-3: #ededed;
+
+  /* Ink */
+  --ink: #101010;
+  --ink-2: #464646;
+  --ink-3: #6b6b6b;
+  --ink-inverse: #ffffff;
+
+  /* Rules */
+  --rule: rgba(0, 0, 0, 0.08);
+  --rule-strong: rgba(0, 0, 0, 0.14);
+  --rule-active: rgba(0, 0, 0, 0.24);
+
+  /* Brand + interaction */
+  --wayam: #ee6a1f;
+  --wayam-ink: #9a3d08;
+  --wayam-tint: #fde6d6;
+  --focus: #2f6fde;
+  --focus-ring: 0 0 0 2px var(--surface), 0 0 0 4px var(--focus);
+  --select: #101010;
+
+  /* Family hues: stroke / tint / ink */
+  --fam-company: #ee6a1f;
+  --fam-company-tint: #fde6d6;
+  --fam-company-ink: #8f3a08;
+  --fam-product: #d9822b;
+  --fam-product-tint: #fff1e2;
+  --fam-product-ink: #7e430c;
+  --fam-capability: #7a4ed9;
+  --fam-capability-tint: #f1ebfe;
+  --fam-capability-ink: #4a2a98;
+  --fam-technology: #2f6fde;
+  --fam-technology-tint: #e7effd;
+  --fam-technology-ink: #1b4494;
+  --fam-data: #2c9a56;
+  --fam-data-tint: #e3f4e9;
+  --fam-data-ink: #1b5f36;
+  --fam-solution: #11979a;
+  --fam-solution-tint: #ddf3f2;
+  --fam-solution-ink: #0a5f61;
+  --fam-industry: #d4443b;
+  --fam-industry-tint: #fce7e5;
+  --fam-industry-ink: #8f241d;
+  --fam-stakeholder: #9580d4;
+  --fam-stakeholder-tint: #f2effb;
+  --fam-stakeholder-ink: #56438f;
+  --fam-client: #5f6b7e;
+  --fam-client-tint: #edf0f4;
+  --fam-client-ink: #36404f;
+
+  /* Evidence states (edge stroke encodes these; glyphs duplicate them) */
+  --ev-verified: #1c7a4b;
+  --ev-linked: #323232;
+  --ev-none: #a3a3a3;
+  --ev-disputed: #c2352b;
+
+  /* Demo marker */
+  --demo-a: #fff3d1;
+  --demo-b: #ffe6a6;
+  --demo-ink: #6f4a00;
+
+  --danger: #b42318;
+  --danger-tint: #fdecea;
+  --ok: #1c7a4b;
+
+  /* Floating surfaces (hover cards, tooltips, toasts) follow the theme */
+  --tip-bg: #ffffff;
+  --tip-ink: #101010;
+  --tip-muted: #6b6b6b;
+  --tip-border: rgba(0, 0, 0, 0.1);
+  --tip-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 14px 32px -12px rgba(0, 0, 0, 0.22);
+
+  --paper: #ffffff;
+  --demo-border: #efcd72;
+  --danger-border: #f3c2bd;
+  --mm-mask: rgba(242, 242, 242, 0.72);
+
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  --dur: 180ms;
+
+  --radius-s: 6px;
+  --radius-m: 10px;
+  --radius-l: 18px;
+  --shadow-panel: 0 1px 0 rgba(22, 26, 34, 0.04), 0 8px 24px -12px rgba(22, 26, 34, 0.18);
+  --shadow-float: 0 12px 32px -12px rgba(22, 26, 34, 0.28);
+
+  --rail-w: 264px;
+  --inspector-w: 392px;
+  --header-h: 56px;
+  --trail-h: 44px;
+
+  color-scheme: light;
+}
+
+/* Dark theme: follows the system unless the viewer picked one explicitly. */
+:root[data-theme="dark"] {
+  --bg: #000000;
+  --canvas: #0a0a0a;
+  --canvas-dot: #262626;
+  --surface: #101010;
+  --surface-2: #191919;
+  --surface-3: #232323;
+
+  --ink: #fafafa;
+  --ink-2: #d4d4d4;
+  --ink-3: #8f8f8f;
+  --ink-inverse: #101010;
+
+  --rule: rgba(255, 255, 255, 0.08);
+  --rule-strong: rgba(255, 255, 255, 0.14);
+  --rule-active: rgba(255, 255, 255, 0.24);
+
+  --wayam: #f27b34;
+  --wayam-ink: #ffb68c;
+  --wayam-tint: #3a2314;
+  --focus: #7ea9ff;
+  --select: #fafafa;
+
+  --fam-company: #f27b34;
+  --fam-company-tint: #3a2314;
+  --fam-company-ink: #ffb68c;
+  --fam-product: #e89a50;
+  --fam-product-tint: #2f2211;
+  --fam-product-ink: #f6c490;
+  --fam-capability: #a184f2;
+  --fam-capability-tint: #231c38;
+  --fam-capability-ink: #cdbcff;
+  --fam-technology: #6395f2;
+  --fam-technology-tint: #15223a;
+  --fam-technology-ink: #adc6ff;
+  --fam-data: #4fc27d;
+  --fam-data-tint: #122b1d;
+  --fam-data-ink: #9fe3b9;
+  --fam-solution: #37c4c3;
+  --fam-solution-tint: #0f2b2c;
+  --fam-solution-ink: #97e4e2;
+  --fam-industry: #f06d63;
+  --fam-industry-tint: #361615;
+  --fam-industry-ink: #ffb3ad;
+  --fam-stakeholder: #b1a0ea;
+  --fam-stakeholder-tint: #26213b;
+  --fam-stakeholder-ink: #d8ceff;
+  --fam-client: #8d9aae;
+  --fam-client-tint: #20252d;
+  --fam-client-ink: #cad2de;
+
+  --ev-verified: #4fc27d;
+  --ev-linked: #d4d4d4;
+  --ev-none: #737373;
+  --ev-disputed: #f06d63;
+
+  --demo-a: #33290c;
+  --demo-b: #41350f;
+  --demo-ink: #f2d68b;
+  --demo-border: #6b5719;
+
+  --danger: #ff8f86;
+  --danger-tint: #3a1716;
+  --danger-border: #6d2a26;
+  --ok: #4fc27d;
+
+  --tip-bg: #191919;
+  --tip-ink: #fafafa;
+  --tip-muted: #a3a3a3;
+  --tip-border: rgba(255, 255, 255, 0.1);
+  --tip-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 16px 36px -12px rgba(0, 0, 0, 0.8);
+  --paper: #191919;
+  --mm-mask: rgba(0, 0, 0, 0.72);
+
+  --shadow-panel: 0 1px 0 rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+  --shadow-float: 0 12px 32px -12px rgba(0, 0, 0, 0.7);
+
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #000000;
+    --canvas: #0a0a0a;
+    --canvas-dot: #262626;
+    --surface: #101010;
+    --surface-2: #191919;
+    --surface-3: #232323;
+
+    --ink: #fafafa;
+    --ink-2: #d4d4d4;
+    --ink-3: #8f8f8f;
+    --ink-inverse: #101010;
+
+    --rule: rgba(255, 255, 255, 0.08);
+    --rule-strong: rgba(255, 255, 255, 0.14);
+    --rule-active: rgba(255, 255, 255, 0.24);
+
+    --wayam: #f27b34;
+    --wayam-ink: #ffb68c;
+    --wayam-tint: #3a2314;
+    --focus: #7ea9ff;
+    --select: #fafafa;
+
+    --fam-company: #f27b34;
+    --fam-company-tint: #3a2314;
+    --fam-company-ink: #ffb68c;
+    --fam-product: #e89a50;
+    --fam-product-tint: #2f2211;
+    --fam-product-ink: #f6c490;
+    --fam-capability: #a184f2;
+    --fam-capability-tint: #231c38;
+    --fam-capability-ink: #cdbcff;
+    --fam-technology: #6395f2;
+    --fam-technology-tint: #15223a;
+    --fam-technology-ink: #adc6ff;
+    --fam-data: #4fc27d;
+    --fam-data-tint: #122b1d;
+    --fam-data-ink: #9fe3b9;
+    --fam-solution: #37c4c3;
+    --fam-solution-tint: #0f2b2c;
+    --fam-solution-ink: #97e4e2;
+    --fam-industry: #f06d63;
+    --fam-industry-tint: #361615;
+    --fam-industry-ink: #ffb3ad;
+    --fam-stakeholder: #b1a0ea;
+    --fam-stakeholder-tint: #26213b;
+    --fam-stakeholder-ink: #d8ceff;
+    --fam-client: #8d9aae;
+    --fam-client-tint: #20252d;
+    --fam-client-ink: #cad2de;
+
+    --ev-verified: #4fc27d;
+    --ev-linked: #d4d4d4;
+    --ev-none: #737373;
+    --ev-disputed: #f06d63;
+
+    --demo-a: #33290c;
+    --demo-b: #41350f;
+    --demo-ink: #f2d68b;
+    --demo-border: #6b5719;
+
+    --danger: #ff8f86;
+    --danger-tint: #3a1716;
+    --danger-border: #6d2a26;
+    --ok: #4fc27d;
+
+    --tip-bg: #191919;
+    --tip-ink: #fafafa;
+    --tip-muted: #a3a3a3;
+    --tip-border: rgba(255, 255, 255, 0.1);
+    --tip-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 16px 36px -12px rgba(0, 0, 0, 0.8);
+    --paper: #191919;
+    --mm-mask: rgba(0, 0, 0, 0.72);
+
+    --shadow-panel: 0 1px 0 rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+    --shadow-float: 0 12px 32px -12px rgba(0, 0, 0, 0.7);
+
+    color-scheme: dark;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root:not([data-theme="dark"]) {
+    --ink-2: #252a35;
+    --ink-3: #3c4350;
+    --rule: #9aa1ae;
+    --rule-strong: #5f6776;
+    --ev-none: #5f6776;
+    --canvas-dot: #b3b9c4;
+  }
+}
+
+@media (prefers-contrast: more) and (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink-2: #d3d7de;
+    --ink-3: #adb3be;
+    --rule: #4a505b;
+    --rule-strong: #6b7280;
+    --ev-none: #8b929e;
+    --canvas-dot: #3b414b;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root[data-theme="dark"] {
+    --ink-2: #d3d7de;
+    --ink-3: #adb3be;
+    --rule: #4a505b;
+    --rule-strong: #6b7280;
+    --ev-none: #8b929e;
+    --canvas-dot: #3b414b;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0ms !important;
+    /* Infinite loops (loading bars, trail flow) must stop, not spin at full speed. */
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
